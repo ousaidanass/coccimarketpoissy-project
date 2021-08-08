@@ -1,0 +1,201 @@
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            -webkit-font-smoothing : antialiased;
+            -moz-osx-font-smoothing : grayscale;
+            margin: 0;
+            font-family: 'Lato', sans-serif;
+            background-color: #5f6062;
+            font-size: 20px;
+        }
+
+        button{
+            font-family: 'Lato', sans-serif;
+            font-size: 20px;
+        }
+        h1 {
+            margin: 0;
+        }
+        p {
+            margin: 0;
+        }
+        .flex {
+            display: flex;
+        }
+        .spacebetween {
+            justify-content: space-between;
+        }
+        .centerbetween {
+            justify-content: center;
+        }
+        .max-width {
+            max-width: 1300px;
+        }
+        .mx-auto {
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .items-center {
+            align-items: center;
+        }
+        .text-white {
+            color: white;
+        }
+        .text-orange {
+            color: #ff8500;
+        }
+        .no-underline {
+            text-decoration: none;
+        }
+        .text-center {
+            text-align: center;
+        }
+        .py-8 {
+            padding-bottom: 8px;
+            padding-top: 8px;
+        }
+        .px-6 {
+            padding-left: 6px;
+            padding-right: 6px;
+        }
+        .py-6 {
+            padding-bottom: 6px;
+            padding-top: 6px;
+        }
+        .px-16 {
+            padding-left: 16px;
+            padding-right: 16px;
+        }
+
+        .py-12 {
+            padding-bottom: 12px;
+            padding-top: 12px;
+        }
+        .px-28 {
+            padding-left: 28px;
+            padding-right: 28px;
+        }
+        .full-rouded {
+            border-radius: 9999px;
+        }
+        .border-none {
+            border: none;
+        }
+        .bg-orange {
+            background-color: #ff8500;
+        }
+        .font-bold {
+            font-weight: bold;
+        }
+        .hidden {
+            display: none;
+        }
+
+        .h-6 {
+            height: 1.5rem;
+        }
+        .w-6 {
+            width: 1.5rem;
+        }
+        .w-220 {
+            width: 220px;
+        }
+
+        #login:hover {
+            color: #ff8500;
+        }
+
+        #signup:hover {
+            color: #ff8500;
+            background-color: white;
+            cursor: pointer;
+        }
+        .relative {
+            position: relative;
+        }
+
+        .absolute {
+            position: absolute;
+        }
+
+        .bg-gray {
+            background-color: #121826;
+        }
+        .w-full {
+            width: 100%;
+        }
+        .h-full {
+            height: 100%;
+        }
+        .col-direction {
+            flex-direction: column;
+        }
+
+        .top-702px {
+            top: -702px;
+            transition: 2s;
+        }
+        @media (min-width: 768px) {
+            .md\:block {
+                display: block;
+            }
+            .md\:hidden {
+                display: none;
+            }
+            .md\:w-320px {
+                width: 320px
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+    <header class="relative">
+        <div class="flex spacebetween max-width mx-auto items-center py-8 px-6">
+            <a href=""><img src="{% static 'coccimarketlogo.png' %}" class="w-220 md:w-320px"/></a>
+            <div class="hidden md:block">
+                <a href="" class="text-white no-underline py-8 px-16" id="login" style="margin-right: 12px;">Login</a>
+                <button href="" class="px-28 py-12 full-rouded border-none bg-orange font-bold text-white" id="signup">Sign up</button>
+            </div>
+            <svg xmlns="http://www.w3.org/2000/svg" id="open_menu" class="text-white md:hidden h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+        </div>
+    </header>
+
+    <div class="absolute md:hidden bg-gray w-full h-full top-702px" id="menu">
+        <svg xmlns="http://www.w3.org/2000/svg" id="close_menu" class="text-white h-6 w-6 px-6 py-6 "  fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+        <div class="mx-auto text-center" style="max-width: 100%; margin-top: 100px;">
+            <a href="" class="text-white no-underline py-8 px-16" style="margin-bottom: 20px; display: block">Login</a>
+            <a href="" class="text-white no-underline py-8 px-16">Sign up</a>
+        </div>
+    </div>
+
+
+    {% block content %}
+    {% endblock %}
+
+
+    <footer class="text-white text-center">
+        © cocciMarket Poissy {% now "Y" %}
+    </footer>
+
+    <script>
+        let open_menu = document.getElementById('open_menu');
+        let close_menu = document.getElementById('close_menu');
+        let menu = document.getElementById('menu');
+        open_menu.onclick = function () {
+            menu.style.top = '0';
+        }
+        close_menu.onclick = function () {
+            menu.style.top = '-702px';
+        }
+    </script>
+</body>
