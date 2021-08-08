@@ -45,6 +45,18 @@
         .text-white {
             color: white;
         }
+        .overflow-hidden {
+            overflow: hidden;
+        }
+        .width-30\% {
+            width: 30%;
+        }
+        .width-100\% {
+            width: 100%;
+        }
+        .width-70\% {
+            width: 70%;
+        }
         .text-orange {
             color: #ff8500;
         }
@@ -57,6 +69,18 @@
         .py-8 {
             padding-bottom: 8px;
             padding-top: 8px;
+        }
+        .top-0 {
+            top: 0;
+        }
+        .o-0\.6 {
+            opacity: 0.6;
+        }
+        .font-24px {
+            font-size: 24px;
+        }
+        .font-15px {
+            font-size: 15px;
         }
         .px-6 {
             padding-left: 6px;
@@ -71,9 +95,36 @@
             padding-right: 16px;
         }
 
+        .pt-12px {
+            padding-top: 12px;
+        }
+        .pt-30px {
+            padding-top: 30px;
+        }
+
         .py-12 {
             padding-bottom: 12px;
             padding-top: 12px;
+        }
+        .py-37 {
+            padding-bottom: 37px;
+            padding-top: 37px;
+        }
+        .my-37 {
+            margin-top: 37px;
+            margin-bottom: 37px;
+        }
+        .br-radius-37px {
+            border-radius: 37px;
+        }
+        .br-radius-5px {
+            border-radius: 5px;
+        }
+        .bg-121826 {
+            background-color: #121826;
+        }
+        .color-purle {
+            color: rgb(196, 181, 253);
         }
         .px-28 {
             padding-left: 28px;
@@ -98,6 +149,9 @@
         .h-6 {
             height: 1.5rem;
         }
+        .bg-black {
+            background-color: black;
+        }
         .w-6 {
             width: 1.5rem;
         }
@@ -108,8 +162,12 @@
         #login:hover {
             color: #ff8500;
         }
-
         #signup:hover {
+            color: #ff8500;
+            background-color: white;
+            cursor: pointer;
+        }
+        #ouvrirgestionstock:hover {
             color: #ff8500;
             background-color: white;
             cursor: pointer;
@@ -135,10 +193,25 @@
             flex-direction: column;
         }
 
-        .top-702px {
-            top: -702px;
-            transition: 2s;
+        .top-1000px {
+            top: -1000px;
+            transition: 1s;
         }
+        .z-10 {
+            z-index: 10;
+        }
+        .bg-white {
+            background: white;
+        }
+        .font-27px {
+            font-size: 27px;
+        }
+        @media (min-width: 372px) {
+            .sm\:font-34px {
+                font-size: 34px;
+            }
+        }
+        
         @media (min-width: 768px) {
             .md\:block {
                 display: block;
@@ -148,6 +221,30 @@
             }
             .md\:w-320px {
                 width: 320px
+            }
+            .md\:pt-68px {
+                padding-top: 68px;
+            }
+            .md\:font-42px {
+                font-size: 42px;
+            }
+            .md\:font-19px {
+                font-size: 19px;
+            }
+            .md\:width-35\% {
+                width: 35%;
+            }
+            
+        }
+        @media (min-width: 1024px) {
+            .lg\:pt-177px {
+                padding-top: 177px;
+            }
+            .lg\:font-84px {
+                font-size: 84px;
+            }
+            .lg\:font-34px {
+                font-size: 34px;
             }
         }
 
@@ -168,13 +265,13 @@
         </div>
     </header>
 
-    <div class="absolute md:hidden bg-gray w-full h-full top-702px" id="menu">
+    <div class="absolute md:hidden bg-gray w-full h-full top-1000px z-10" id="menu">
         <svg xmlns="http://www.w3.org/2000/svg" id="close_menu" class="text-white h-6 w-6 px-6 py-6 "  fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
         </svg>
         <div class="mx-auto text-center" style="max-width: 100%; margin-top: 100px;">
-            <a href="" class="text-white no-underline py-8 px-16" style="margin-bottom: 20px; display: block">Login</a>
-            <a href="" class="text-white no-underline py-8 px-16">Sign up</a>
+            <a href="" class="text-white no-underline py-8 px-16" id="loginscrol" style="margin-bottom: 20px; display: block">Login</a>
+            <a href="" class="text-white no-underline py-8 px-16" style="display: block;" id="signupscrol">Sign up</a>
         </div>
     </div>
 
@@ -195,7 +292,7 @@
             menu.style.top = '0';
         }
         close_menu.onclick = function () {
-            menu.style.top = '-702px';
+            menu.style.top = '-1000px';
         }
     </script>
 </body>
