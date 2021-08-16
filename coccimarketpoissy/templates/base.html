@@ -3,6 +3,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <title>cocciMarket Poissy Manager</title>
     <style>
         body {
             -webkit-font-smoothing : antialiased;
@@ -11,6 +12,12 @@
             font-family: 'Lato', sans-serif;
             background-color: #5f6062;
             font-size: 20px;
+        }
+
+        input[type="text"], input[type="password"], select {
+            font-family: 'Lato', sans-serif;
+            height: 32px;
+            font-size: 15px;
         }
 
         button{
@@ -57,8 +64,26 @@
         .width-70\% {
             width: 70%;
         }
+        .w-100\% {
+            width: 100%;
+        }
         .text-orange {
             color: #ff8500;
+        }
+        .bg-white {
+            background-color: white;
+        }
+        .br-2-orange {
+            border: 2px solid #ff8500;
+        }
+        .mb-6 {
+            margin-bottom: 6px;
+        }
+        .mb-12 {
+            margin-bottom: 12px;
+        }
+        .mb-10 {
+            margin-bottom: 10px;
         }
         .no-underline {
             text-decoration: none;
@@ -76,8 +101,29 @@
         .o-0\.6 {
             opacity: 0.6;
         }
+        .br-radius-10 {
+                border-radius: 10px;
+        }
+        .br-0-10-10-0 {
+            border-radius: 0 10px 10px 0;
+        }
+        .mr-40 {
+            margin-right: 40px;
+        }
+        .br-10-0-0-10 {
+            border-radius: 10px 0 0 10px;
+        }
+        .mt-70px {
+                margin-top: 70px;
+        }
         .font-24px {
             font-size: 24px;
+        }
+        .width-90\% {
+            width: 90%;
+        }
+        .flex-grow-1 {
+            flex-grow: 1; /* default 0 */
         }
         .font-15px {
             font-size: 15px;
@@ -86,9 +132,20 @@
             padding-left: 6px;
             padding-right: 6px;
         }
+        .pl-12 {
+            padding-left: 12px;
+        }
+        .px-4 {
+            padding-left: 4px;
+            padding-right: 4px;
+        }
         .py-6 {
             padding-bottom: 6px;
             padding-top: 6px;
+        }
+        .py-12 {
+            padding-bottom: 12px;
+            padding-top: 12px;
         }
         .px-16 {
             padding-left: 16px;
@@ -98,6 +155,13 @@
         .pt-12px {
             padding-top: 12px;
         }
+        .text-purple-300 {
+            --tw-text-opacity: 1;
+            color: rgba(196,181,253,var(--tw-text-opacity));
+        }
+        .pt-8px {
+            padding-top: 8px;
+        }
         .pt-30px {
             padding-top: 30px;
         }
@@ -105,6 +169,13 @@
         .py-12 {
             padding-bottom: 12px;
             padding-top: 12px;
+        }
+        .px-30 {
+            padding-left: 30px;
+            padding-right: 30px;
+        }
+        .pb-37px {
+            padding-bottom: 37px;
         }
         .py-37 {
             padding-bottom: 37px;
@@ -139,6 +210,9 @@
         .bg-orange {
             background-color: #ff8500;
         }
+        .mt-12px {
+            margin-top: 12px;
+        }
         .font-bold {
             font-weight: bold;
         }
@@ -162,7 +236,7 @@
         #login:hover {
             color: #ff8500;
         }
-        #signup:hover {
+        #signup:hover, #btnlogout1:hover {
             color: #ff8500;
             background-color: white;
             cursor: pointer;
@@ -192,7 +266,9 @@
         .col-direction {
             flex-direction: column;
         }
-
+        .width-45px {
+            width: 45px;
+        }
         .top-1000px {
             top: -1000px;
             transition: 1s;
@@ -205,6 +281,35 @@
         }
         .font-27px {
             font-size: 27px;
+        }
+        .text-red {
+                color: red;
+        }
+        .focus:focus {
+            outline: none;
+        }
+        .w-250 {
+            width: 250px;
+        }
+        .font-30px {
+                font-size: 30px;
+        }
+        .text-purple {
+            --tw-text-opacity: 1;
+            color: rgba(249, 168, 212, var(--tw-text-opacity));
+        }
+        .bg-gray-block {
+            --tw-bg-opacity: 1;
+            background-color: rgba(31,41,55,var(--tw-bg-opacity));
+        }
+        .block {
+                display: block;
+        }
+        .w-30 {
+            width: 30px;
+        }
+        .display_inbl{
+            display: inline-block;
         }
         @media (min-width: 372px) {
             .sm\:font-34px {
@@ -234,7 +339,25 @@
             .md\:width-35\% {
                 width: 35%;
             }
-            
+            .md\:w-50\% {
+                    width: 50%;
+            }
+            .md\:row-direction {
+                flex-direction: row;
+            }
+            .md\:mb-0 {
+                margin-bottom: 0px;
+            }
+            .md\:max-width {
+                max-width: 1300px;
+            }
+            .md\:mx-auto {
+                margin-left: auto;
+                margin-right: auto;
+            }
+            .md\:mr-12 {
+            margin-right: 12px;
+        }
         }
         @media (min-width: 1024px) {
             .lg\:pt-177px {
@@ -246,6 +369,12 @@
             .lg\:font-34px {
                 font-size: 34px;
             }
+            .lg\:width-30\% {
+                    width: 30%;
+                }
+            .lg\:width-50\% {
+                width: 50%;
+            }
         }
 
     </style>
@@ -254,10 +383,18 @@
 <body>
     <header class="relative">
         <div class="flex spacebetween max-width mx-auto items-center py-8 px-6">
-            <a href=""><img src="{% static 'coccimarketlogo.png' %}" class="w-220 md:w-320px"/></a>
+            <a href="{% url 'home' %}"><img src="{% static 'coccimarketlogo.png' %}" class="w-220 md:w-320px"/></a>
             <div class="hidden md:block">
-                <a href="" class="text-white no-underline py-8 px-16" id="login" style="margin-right: 12px;">Login</a>
-                <button href="" class="px-28 py-12 full-rouded border-none bg-orange font-bold text-white" id="signup">Sign up</button>
+                {% if user.is_authenticated %}
+                    <button class="px-28 py-12 full-rouded border-none bg-orange font-bold text-white" id="btnlogout1">Se déconnecter</button>
+                    <form method="POST" action="{% url 'logout' %}" class="display_inbl" id="logoutform">
+                        {% csrf_token %}
+                        <input type="hidden" />
+                    </form>
+                {%  else %}
+                    <a href="{% url 'login' %}" class="text-white no-underline py-8 px-16" id="login" style="margin-right: 12px;">Se connecter</a>
+                    <button class="px-28 py-12 full-rouded border-none bg-orange font-bold text-white" id="signup">Créer un compte</button>
+                {% endif %}
             </div>
             <svg xmlns="http://www.w3.org/2000/svg" id="open_menu" class="text-white md:hidden h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
@@ -270,8 +407,12 @@
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
         </svg>
         <div class="mx-auto text-center" style="max-width: 100%; margin-top: 100px;">
-            <a href="" class="text-white no-underline py-8 px-16" id="loginscrol" style="margin-bottom: 20px; display: block">Login</a>
-            <a href="" class="text-white no-underline py-8 px-16" style="display: block;" id="signupscrol">Sign up</a>
+            {% if user.is_authenticated %}
+                <a class="text-white no-underline py-8 px-16" style="display: block;" id="btnlogout2">Se déconnecter</a>
+            {%  else %}
+                <a href="{% url 'login' %}" class="text-white no-underline py-8 px-16" id="loginscrol" style="margin-bottom: 20px; display: block">Se connecter</a>
+                <a href="{% url 'signup' %}" class="text-white no-underline py-8 px-16" style="display: block;" id="signupscrol">Créer un compte</a>
+            {% endif %}
         </div>
     </div>
 
@@ -280,19 +421,39 @@
     {% endblock %}
 
 
-    <footer class="text-white text-center">
+    <footer class="text-white text-center py-8">
         © cocciMarket Poissy {% now "Y" %}
     </footer>
 
     <script>
         let open_menu = document.getElementById('open_menu');
         let close_menu = document.getElementById('close_menu');
+        let signup = document.getElementById('signup');
         let menu = document.getElementById('menu');
+        let btnlogout1 = document.getElementById('btnlogout1');
+        let btnlogout2 = document.getElementById('btnlogout2');
+        let logoutform = document.getElementById('logoutform');
+
         open_menu.onclick = function () {
             menu.style.top = '0';
         }
         close_menu.onclick = function () {
             menu.style.top = '-1000px';
+        }
+        if (signup) {
+            signup.onclick = function () {
+                window.open('{% url 'signup' %}', "_self");
+            }
+        }
+        if (btnlogout1) {
+            btnlogout1.onclick = function () {
+                logoutform.submit();
+            }
+        }
+        if (btnlogout2) {
+            btnlogout2.onclick = function () {
+                logoutform.submit();
+            }
         }
     </script>
 </body>

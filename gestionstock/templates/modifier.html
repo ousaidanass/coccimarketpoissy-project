@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+        <div class="bg-gray-block width-90% md:w-50% lg:width-30% mx-auto mt-70px br-radius-10">
+            <h1 class="text-center text-white font-30px py-37">Modifier Le Produit</h1>
+            <form action="{% url 'submit_modification' produit.id %}" class="px-30 pb-37px" method="POST">
+                {% csrf_token %}
+                <p class="text-orange mb-6">Titre Du Produit</p>
+                <input type="text" name="titre" class="mb-12 w-100% lg:w-50%" value="{{ produit.titre }}"/>
+                <p class="text-orange mb-6">Code</p>
+                <input type="text" name="code" value="{{ produit.code }}" class="mb-12 w-100% lg:w-50%"/>
+                <p class="text-orange mb-6">Zone</p>
+                <select class="mb-12 w-100% lg:w-50%" name="zone">
+                    <option value="1" id="1">1</option>
+                    <option value="2" id="2">2</option>
+                    <option value="3" id="3">3</option>
+                    <option value="4" id="4">4</option>
+                    <script>
+                        let select_nb = "{{ produit.zone }}";
+                        document.getElementById(select_nb).setAttribute("selected", "");
+                    </script>
+                </select>
+                <input type="submit" value="Modifier" class="px-28 py-12 full-rouded border-none bg-orange font-bold text-white mt-12px" />
+            </form>
+        </div>
+
+{% endblock %}

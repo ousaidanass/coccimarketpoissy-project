@@ -1,0 +1,118 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+   <div class="flex col-direction md:row-direction items-center md:max-width md:mx-auto" style="margin-top: 14px;">
+       <form class="flex spacebetween width-90% items-center bg-white br-radius-10 br-2-orange mb-10 md:mb-0 md:mr-12" id="recherche_titre" action="{% url 're_titre' %}" method="POST">
+           {% csrf_token %}
+           <input type="text" name="re_par_titre" placeholder="recherche par titre" class="focus br-10-0-0-10 flex-grow-1 pl-12" style="border: none;"/>
+           <a href="javascript:{document.getElementById('recherche_titre').submit()}">
+               <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-orange br-0-10-10-0 px-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+               </svg>
+           </a>
+       </form>
+
+       <form class="flex spacebetween width-90% items-center bg-white br-radius-10 br-2-orange mb-10 md:mb-0 md:mr-12" id="recherche_code" action="{% url 're_code' %}" method="POST">
+           {% csrf_token %}
+           <input type="text" name="re_par_code" placeholder="recherche par code" class="focus br-10-0-0-10 flex-grow-1 pl-12" style="border: none;"/>
+           <a href="javascript:{document.getElementById('recherche_code').submit()}">
+               <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-orange br-0-10-10-0 px-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+               </svg>
+           </a>
+       </form>
+
+       <form class="flex spacebetween width-90% items-center bg-white br-radius-10 br-2-orange mb-10 md:mb-0 md:mr-12" id="recherche_zone" action="{% url 're_zone' %}" method="POST">
+           {% csrf_token %}
+           <select class="focus bg-white br-10-0-0-10 flex-grow-1 pl-12" name="zone" style="border: none;">
+               <option value="" disabled selected>Recherche par zone</option>
+               <option value="1">1</option>
+               <option value="2">2</option>
+               <option value="3">3</option>
+               <option value="4">4</option>
+           </select>
+           <a href="javascript:{document.getElementById('recherche_zone').submit()}">
+               <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-orange br-0-10-10-0 px-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+               </svg>
+           </a>
+       </form>
+       <a href="{% url 'creer' %}">
+           <svg xmlns="http://www.w3.org/2000/svg" class="width-45px text-orange bg-white br-radius-10 br-2-orange" viewBox="0 0 20 20" fill="currentColor">
+               <path fill-rule="evenodd" d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z" clip-rule="evenodd" />
+           </svg>
+       </a>
+   </div>
+
+
+
+
+   {% if produits_re %}
+
+      {% for produit in produits_re %}
+      <div class="bg-gray-block width-90% md:w-50% lg:width-30% mx-auto br-radius-10" style="margin-top: 14px;">
+          <a href="javascript:{document.getElementById('supprimer{{ produit.id }}').submit()}">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" style="padding: 4px;" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd" />
+              </svg>
+          </a>
+
+          <form method="POST" id="supprimer{{ produit.id }}" action="{% url 'supprimer' produit.id %}">
+              {% csrf_token %}
+              <input type="hidden" />
+          </form>
+
+          <p class="text-center px-30 font-bold text-white">{{ produit.titre }}</p>
+          <p class="text-center px-30 font-bold text-white text-purple-300 font-15px">{{ produit.code }}</p>
+          <div class="px-30 py-12">
+              <p class="text-orange">{{ produit.creer_par }}</p>
+              <p class="text-orange">{{ produit.pub_date_pretty }}</p>
+          </div>
+      </div>
+      {% endfor %}
+
+   {% else %}
+
+      {% for produit in produits.all %}
+      <div class="bg-gray-block width-90% md:w-50% lg:width-30% mx-auto br-radius-10" style="margin-top: 14px;">
+      <div class="flex spacebetween">
+          <a href="javascript:{document.getElementById('supprimer{{ produit.id }}').submit()}">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" style="padding: 4px;" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd" />
+              </svg>
+          </a>
+          <a href="javascript:{document.getElementById('modifier{{ produit.id }}').submit()}">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" style="padding: 4px;" viewBox="0 0 20 20" fill="currentColor">
+              <path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z" />
+            </svg>
+          </a>
+      </div>
+          <!--Form Pour Supprimer et modifier-->
+          <form method="POST" id="supprimer{{ produit.id }}" action="{% url 'supprimer' produit.id %}">
+              {% csrf_token %}
+              <input type="hidden" />
+          </form>
+          <form method="POST" id="modifier{{ produit.id }}" action="{% url 'modifier' produit.id %}">
+              {% csrf_token %}
+              <input type="hidden" />
+          </form>
+          <!--Fin Form-->
+
+          <p class="text-center px-30 font-bold text-white">{{ produit.titre }}</p>
+          <p class="text-center px-30 font-bold text-white text-purple-300 font-15px">{{ produit.code }}</p>
+          <div class="px-30 py-12">
+              <p class="text-orange"><span class="text-white font-bold">Zone:</span> {{ produit.zone }}</p>
+              <p class="text-orange"><span class="text-white font-bold">Le Créateur:</span> {{ produit.creer_par }}</p>
+              <p class="text-orange"><span class="text-white font-bold">Date De Creation:</span> {{ produit.pub_date_pretty }}</p>
+          </div>
+      </div>
+      {% endfor %}
+
+   {% endif %}
+
+
+{% endblock %}
+
+
