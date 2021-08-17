@@ -1,0 +1,1 @@
+web: gunicorn coccimarketpoissy.wsgi --log-file -
