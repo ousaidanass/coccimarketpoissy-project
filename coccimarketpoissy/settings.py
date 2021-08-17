@@ -126,7 +126,7 @@ USE_TZ = True
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'coccimarketpoissy/static/')
 ]
-STATIC_ROOT = os.path.join(BASE_DIR, "/app/static/")
+STATIC_ROOT = os.path.join(BASE_DIR, "static")
 STATIC_URL = '/static/'
 
 
