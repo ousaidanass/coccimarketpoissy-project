@@ -83,6 +83,7 @@ def re_zone(request):
         dict_rechercher = {'produits_re': []}
         produits = Produit.objects.all()
         zone_rechercher = request.POST['zone']
+        print(">>>>" + str(request.POST['zone']))
         for produit in produits.iterator():
             if zone_rechercher == produit.zone:
                 dict_rechercher['produits_re'].append(produit)
